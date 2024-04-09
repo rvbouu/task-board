@@ -4,24 +4,24 @@
 const taskName = $("#name");
 const taskDueDate = $("#taskDueDate");
 const taskContent = $("#content");
-const taskLanes = $('.swim-lanes');
-const taskForm = $('#formModal');
+const taskLanes = $(".swim-lanes");
+const taskForm = $("#formModal");
 
-function readTasksFromStorage(){
-  let stringData = localStorage.getItem('tasks');
+function readTasksFromStorage() {
+  let stringData = localStorage.getItem("tasks");
   let taskList = JSON.parse(stringData) || [];
   return taskList;
 }
 
-function readNextIdFromStorage(){
-  let stringData = localStorage.getItem('nextId');
+function readNextIdFromStorage() {
+  let stringData = localStorage.getItem("nextId");
   let nextId = JSON.parse(stringData);
   return nextId;
 }
 
-function saveTasksToStorage(taskList){
+function saveTasksToStorage(taskList) {
   let savedTasks = JSON.stringify(taskList);
-  localStorage.setItem('tasks', savedTasks);
+  localStorage.setItem("tasks", savedTasks);
 }
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
@@ -125,7 +125,7 @@ function renderTaskList() {
       // checks whether target of drag is card itself or child element. If card itself, clone it, else find parent card that is draggable and clone that.
       const original = $(e.target).hasClass("ui-draggable")
         ? $(e.target)
-        : $(e.target).closest("ui-draggable");
+        : $(e.target).closest(".ui-draggable");
       // returns clone with same width as original card
       return original.clone().css({
         width: original.outerWidth(),
@@ -136,7 +136,7 @@ function renderTaskList() {
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event) {
-  // event.preventDefault();
+  event.preventDefault();
 
   const name = taskName.val();
   const dueDate = taskDueDate.val();
@@ -205,13 +205,13 @@ function handleDrop(event, ui) {
 }
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
-taskForm.on('click', '.add-task-btn', function(e){
+taskForm.on("click", ".add-task-btn", function (e) {
   e.preventDefault();
   handleAddTask();
-  taskForm.modal('hide');
+  taskForm.modal("hide");
 });
 
-taskLanes.on('click', '.delete', handleDeleteTask);
+taskLanes.on("click", ".delete", handleDeleteTask);
 
 $(document).ready(function () {
   // renders tasks if there is any
