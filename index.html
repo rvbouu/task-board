@@ -46,7 +46,7 @@
           Add Task
         </button>
       </div>
-      <!-- Todo: Create a modal with a form to add tasks -->
+      <!-- modal with form to add tasks -->
       <div class="modal fade" tabindex="-1" id="formModal">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -60,10 +60,12 @@
               ></button>
             </div>
             <form class="row m-4">
+              <!--task title input-->
               <div class="col-md-6 mb-4">
                 <label for="title" class="form-label">Task Title</label>
                 <input type="text" class="form-control" id="name" />
               </div>
+              <!-- task due date input w/ calendar pop out -->
               <div class="col-md-6 mb-4">
                 <label for="dueDate" class="form-label">Task Due Date</label>
                 <input
@@ -73,6 +75,7 @@
                   id="taskDueDate"
                 />
               </div>
+              <!-- task description input -->
               <div class="col-12">
                 <label for="content" class="form-label">Task Description</label>
                 <textarea
@@ -83,8 +86,9 @@
                 ></textarea>
               </div>
             </form>
+            <!-- add task button -->
             <div class="mb-4 d-flex justify-content-center">
-              <button type="button" class="btn btn-success">Add Task</button>
+              <button type="button" class="btn btn-success add-task-btn">Add Task</button>
             </div>
           </div>
         </div>
