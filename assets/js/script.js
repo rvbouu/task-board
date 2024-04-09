@@ -136,7 +136,7 @@ function renderTaskList() {
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   const name = taskName.val();
   const dueDate = taskDueDate.val();
